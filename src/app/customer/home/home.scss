@@ -1,0 +1,48 @@
+.full-width-table {
+  width: 100%;
+}
+
+.content-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 16px;
+  min-height: calc(100vh - 120px);
+}
+
+/* Angular Material responsive breakpoints */
+/* These align with Angular Material's breakpoints */
+@media (max-width: 599px) {
+  .content-container {
+    padding: 8px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 959px) {
+  /* Tablet styles */
+}
+
+@media (min-width: 960px) and (max-width: 1279px) {
+  /* Desktop styles */
+}
+
+@media (min-width: 1280px) {
+  /* Large desktop styles */
+}
+
+/* Utility margins that match Material Design spacing */
+.m-0 { margin: 0 !important; }
+.m-1 { margin: 4px !important; }
+.m-2 { margin: 8px !important; }
+.m-3 { margin: 16px !important; }
+.m-4 { margin: 24px !important; }
+.m-5 { margin: 48px !important; }
+
+.mt-1 { margin-top: 4px !important; }
+.mt-2 { margin-top: 8px !important; }
+.mt-3 { margin-top: 16px !important; }
+.mt-4 { margin-top: 24px !important; }
+.mt-5 { margin-top: 48px !important; }
+
+/* Similar classes for margin-bottom, margin-left, margin-right */
+/* And padding variations */

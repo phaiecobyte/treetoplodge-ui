@@ -1,0 +1,27 @@
+<header class="header">
+  <div class="container">
+    <div class="logo">
+      <a href="/">
+        <span class="logo-text">Tree Top Lodge</span>
+      </a>
+    </div>
+    
+    <button class="mobile-toggle" (click)="toggleMenu()" aria-label="Toggle navigation">
+      <mat-icon>{{ isMenuOpen ? 'close' : 'menu' }}</mat-icon>
+    </button>
+    
+    <nav class="navbar" [class.active]="isMenuOpen">
+      <ul class="nav-list">
+        <li *ngFor="let item of items" class="nav-item">
+          <a [routerLink]="[item.routeLink]" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-link">
+            @if (item.icon) { <mat-icon>{{item.icon}}</mat-icon> }
+            {{item.label}}
+          </a>
+        </li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-book">Book Now</button>
+      </div>
+    </nav>
+  </div>
+</header>

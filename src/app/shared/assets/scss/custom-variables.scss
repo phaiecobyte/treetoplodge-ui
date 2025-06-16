@@ -1,0 +1,28 @@
+// Core Bootstrap overrides
+// Resort-themed color variables
+$primary: #4a7c59;     // Forest green - main brand color
+$secondary: #a4c3b2;   // Sage green - secondary elements
+$success: #6b9080;     // Deep moss - success states
+$info: #cce3de;        // Pale mint - informational elements
+$warning: #eeba4d;     // Warm amber - warning states
+$danger: #b54f41;      // Terracotta - error states
+$light: #f6fff8;       // Off-white - light backgrounds
+$dark: #2c4a3e;        // Deep forest - dark text/backgrounds
+
+// Neutral tones
+$gray-100: #f8faf9;
+$gray-200: #edf2ef;
+$gray-300: #dde5e0;
+$gray-400: #c2cfc7;
+$gray-500: #97a89e;
+$gray-600: #738078;
+$gray-700: #546159;
+$gray-800: #3a433e;
+$gray-900: #212924;
+
+// Additional customization
+$enable-shadows: true;
+$border-radius: .4rem;
+$font-family-sans-serif: 'Montserrat', system-ui, -apple-system, sans-serif;
+$headings-font-family: 'Playfair Display', serif;
+
