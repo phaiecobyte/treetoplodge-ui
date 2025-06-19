@@ -1,1 +1,32 @@
-<button class="btn btn-primary">Click me</button>
+<div class="container d-flex align-items-center justify-content-center min-vh-100">
+    <div class="row justify-content-center w-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-header bg-primary text-light text-center p-4">
+                    <h2 class="mb-0">Tree Top Lodge</h2>
+                    <p class="mb-0">Please sign in to continue</p>
+                </div>
+                <div class="card-body p-4">
+                    <form [formGroup]="frm" (ngSubmit)="onSubmit()">
+                        <app-input formControlName="username" label="Username" placeholder="Enter your username"
+                            type="text" prefixIcon="fa fa-user" [showErr]="isFieldInvalid('username')"
+                            errMsg="Username is required!" />
+                        <app-input formControlName="password" label="Password" placeholder="Enter your password"
+                            type="password" prefixIcon="fa fa-lock" [showErr]="isFieldInvalid('password')"
+                            errMsg="Password is required!" />
+                        <div class="d-grid gap-2 d-md-flex mt-4">
+                            <button class="btn btn-primary py-2 flex-grow-1" type="submit">
+                                <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                            </button><br/>
+                            <button class="btn btn-outline-secondary py-2" type="reset" (click)="onBackHome()">Cancel</button>
+                        </div>
+                        <p class="me-2">Don't have account yet? <a href="/register">Register</a></p>
+                    </form>
+                </div>
+                <div class="card-footer text-center py-3 bg-light text-muted">
+                    <small>Copyright © 2025 Tree Top Lodge</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

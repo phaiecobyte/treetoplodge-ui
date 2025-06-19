@@ -18,7 +18,7 @@ export class Header {
     {
       label: 'Home',
       icon: 'home',
-      routeLink: '/'
+      routeLink: '/home'
     },
     {
       label: 'Accommodation',

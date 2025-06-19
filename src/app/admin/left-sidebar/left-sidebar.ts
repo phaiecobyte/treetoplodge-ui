@@ -28,6 +28,11 @@ export class LeftSidebar {
           routeLink: '/admin/settings' 
       },
       {
+          label:'Manage Users',
+          icon:'fa-solid fa-users',
+          routeLink:'/admin/users'
+      },
+      {
         label:'Go Back',
         icon:'fa-solid fa-backward-step',
         routeLink:'/'

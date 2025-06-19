@@ -1,6 +1,168 @@
-<app-header/>
-
 <div class="content-container">
-  <router-outlet></router-outlet>
+  <!-- Hero Carousel Section -->
+        <app-carousel 
+          [items]="carouselItems"
+          carouselId="home-carousel"
+          height="70vh"
+          [addShadow]="true">
+        </app-carousel>
+
+        <!-- Welcome Section -->
+        <div class="container my-5">
+          <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+              <h1 class="display-4 fw-bold text-primary">Welcome to Tree Top Lodge</h1>
+              <p class="lead">Experience the magic of a forest canopy stay in our luxury treehouse accommodations.</p>
+              <p>Nestled in pristine woodlands, Tree Top Lodge offers a unique blend of adventure and comfort. Our carefully crafted treehouses provide an unforgettable retreat with panoramic views, modern amenities, and the soothing sounds of nature.</p>
+              <div class="mt-4">
+                <a routerLink="/booking" class="btn btn-primary btn-lg me-2">Book Your Stay</a>
+                <a routerLink="/about" class="btn btn-outline-secondary">Learn More</a>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <img src="./banner4.jpg" alt="Treehouse interior" class="img-fluid rounded-4 shadow-lg">
+            </div>
+          </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="bg-light py-5">
+          <div class="container">
+            <h2 class="text-center mb-5">Experience Natural Luxury</h2>
+            <div class="row g-4">
+              <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                  <div class="card-body text-center p-4">
+                    <div class="feature-icon bg-primary bg-gradient text-white mb-3 mx-auto rounded-circle d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                      <i class="bi bi-tree fs-2"></i>
+                    </div>
+                    <h3 class="fs-4">Treehouse Accommodations</h3>
+                    <p>Our custom-designed treehouses blend seamlessly with nature while offering all the comforts of luxury living.</p>
+                    <a routerLink="/accommodations" class="text-decoration-none">View accommodations →</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                  <div class="card-body text-center p-4">
+                    <div class="feature-icon bg-primary bg-gradient text-white mb-3 mx-auto rounded-circle d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                      <i class="bi bi-cup-hot fs-2"></i>
+                    </div>
+                    <h3 class="fs-4">Fine Dining</h3>
+                    <p>Enjoy exquisite meals crafted from locally-sourced ingredients in our canopy-level restaurant.</p>
+                    <a routerLink="/dining" class="text-decoration-none">Explore dining →</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                  <div class="card-body text-center p-4">
+                    <div class="feature-icon bg-primary bg-gradient text-white mb-3 mx-auto rounded-circle d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                      <i class="bi bi-geo-alt fs-2"></i>
+                    </div>
+                    <h3 class="fs-4">Adventure Activities</h3>
+                    <p>From canopy walks to guided forest trails, experience the wilderness in exciting new ways.</p>
+                    <a routerLink="/activities" class="text-decoration-none">Discover activities →</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Room Showcase -->
+        <div class="container my-5">
+          <h2 class="text-center mb-4">Our Treehouse Suites</h2>
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+              <div class="card border-0 shadow h-100">
+                <img src="./banner1.jpg" class="card-img-top" alt="Canopy Suite">
+                <div class="card-body">
+                  <h5 class="card-title">Canopy Suite</h5>
+                  <p class="card-text">Our most popular accommodation with panoramic forest views and a private outdoor deck.</p>
+                  <p class="text-primary fw-bold">$299/night</p>
+                </div>
+                <div class="card-footer bg-white border-0">
+                  <a routerLink="/rooms/canopy-suite" class="btn btn-outline-primary d-block">View Details</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="card border-0 shadow h-100">
+                <img src="./treetop9.jpg" class="card-img-top" alt="Forest Cabin">
+                <div class="card-body">
+                  <h5 class="card-title">Forest Cabin</h5>
+                  <p class="card-text">A cozy retreat nestled among old-growth trees perfect for couples.</p>
+                  <p class="text-primary fw-bold">$249/night</p>
+                </div>
+                <div class="card-footer bg-white border-0">
+                  <a routerLink="/rooms/forest-cabin" class="btn btn-outline-primary d-block">View Details</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="card border-0 shadow h-100">
+                <img src="./treetop8.jpg" class="card-img-top" alt="Family Treehouse">
+                <div class="card-body">
+                  <h5 class="card-title">Family Treehouse</h5>
+                  <p class="card-text">Spacious accommodation with two bedrooms perfect for family adventures.</p>
+                  <p class="text-primary fw-bold">$399/night</p>
+                </div>
+                <div class="card-footer bg-white border-0">
+                  <a routerLink="/rooms/family-treehouse" class="btn btn-outline-primary d-block">View Details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-4">
+            <a routerLink="/rooms" class="btn btn-primary">View All Accommodations</a>
+          </div>
+        </div>
+
+        <!-- Testimonial Section -->
+        <div class="bg-light py-5">
+          <div class="container py-3">
+            <h2 class="text-center mb-5">Guest Experiences</h2>
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <div class="card border-0 shadow-sm mb-4">
+                  <div class="card-body p-5">
+                    <div class="d-flex mb-4">
+                      <span class="text-primary me-1"><i class="bi bi-star-fill"></i></span>
+                      <span class="text-primary me-1"><i class="bi bi-star-fill"></i></span>
+                      <span class="text-primary me-1"><i class="bi bi-star-fill"></i></span>
+                      <span class="text-primary me-1"><i class="bi bi-star-fill"></i></span>
+                      <span class="text-primary"><i class="bi bi-star-fill"></i></span>
+                    </div>
+                    <p class="lead fst-italic">"Our stay at Tree Top Lodge was magical. Waking up to birdsong and having breakfast while watching the sunrise over the forest canopy was an experience we'll never forget."</p>
+                    <div class="d-flex align-items-center">
+                      <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                        <span>JD</span>
+                      </div>
+                      <div>
+                        <h5 class="mb-0">Jane & David</h5>
+                        <small class="text-muted">Seattle, WA</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <a routerLink="/testimonials" class="btn btn-outline-primary">Read More Stories</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="container my-5 text-center py-5">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <h2 class="display-5 fw-bold">Ready for an unforgettable experience?</h2>
+              <p class="lead mb-4">Book your stay at Tree Top Lodge and reconnect with nature without sacrificing comfort.</p>
+              <a routerLink="/booking" class="btn btn-primary btn-lg px-4 me-sm-3">Book Your Stay</a>
+              <a routerLink="/contact" class="btn btn-outline-secondary btn-lg px-4">Contact Us</a>
+            </div>
+          </div>
+        </div>
 </div>
-<app-footer/>

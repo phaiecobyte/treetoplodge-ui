@@ -1,15 +1,19 @@
 import { Routes } from "@angular/router";
-import { Home } from "./home/home";
+import { Main } from "./main/main";
 
 export const routes:Routes=[
     {
         path:'',
-        component:Home,
+        component:Main,
         children:[
             {
                 path:'',
                 redirectTo:'home',
                 pathMatch:'full'
+            },
+            {
+                path:'home',
+                loadComponent:()=>import('./home/home').then(c=>c.Home)
             },
             {
                 path:'accommodation',
@@ -26,7 +30,8 @@ export const routes:Routes=[
             {
                 path:'galary',
                 loadComponent:()=>import('./galary/galary').then(c=>c.Galary)
-            }
+            },
+            
         ]
     }
 ]
