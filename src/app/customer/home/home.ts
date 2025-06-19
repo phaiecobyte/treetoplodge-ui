@@ -12,7 +12,7 @@ import { CarouselComponent, CarouselItem } from '../../shared/components/carouse
   selector: 'app-home',
   templateUrl: './home.html',
   styleUrl: './home.scss',
-  imports: [MatTableModule, MatPaginatorModule, MatSortModule, Footer, Header,RouterModule,CarouselComponent]
+  imports: [MatTableModule, MatPaginatorModule, MatSortModule,RouterModule,CarouselComponent]
 })
 export class Home implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
