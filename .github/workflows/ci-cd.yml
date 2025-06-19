@@ -1,4 +1,4 @@
-name: TreetopDodge UI CI/CD
+name: TreetopLodge UI CI/CD
 
 on:
   push:
