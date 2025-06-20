@@ -1,14 +1,23 @@
-# Build stage
-FROM node:18-alpine AS build
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci
-COPY . .
-RUN npm run build
+# Stage 1: Build the Angular application
+FROM node:22.16-alpine as build-stage
 
-# Production stage
-FROM nginx:alpine
-COPY --from=build /app/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+RUN npm run build --prod
+
+# Stage 2: Serve using Nginx
+FROM nginx:stable-alpine
+
+# Remove default nginx website
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy built Angular app from previous stage
+COPY --from=builder /app/dist/treetoplodge-ui /usr/share/nginx/html
+
 EXPOSE 80
+
 CMD ["nginx", "-g", "daemon off;"]
