@@ -1,9 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@use "./app/shared/assets/scss/custom-variables" as *;
 
-/* Import Khmer fonts - Battambang as default and Moulpali as accent */
+// ✅ Keep Google Fonts as-is — it's a CSS import, not a Sass import.
 @import url('https://fonts.googleapis.com/css2?family=Moulpali&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-@import "./app/shared/assets/scss/custom-variables.scss";
-
+// ⚠️ Temporary fix for Bootstrap – until Bootstrap supports @use
 @import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/root";
+
 

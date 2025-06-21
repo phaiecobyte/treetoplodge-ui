@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputPath": "dist/treetoplodge-ui/browser",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -100,6 +101,14 @@
               "@angular/material/prebuilt-themes/rose-red.css",
               "src/styles.scss"
             ]
+          }
+        },
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/treetoplodge-ui",
+            "netlifyToken": "dist/treetoplodge-ui",
+            "siteId": ""
           }
         }
       }
