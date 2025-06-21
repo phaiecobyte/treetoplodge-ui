@@ -17,7 +17,7 @@ export const routes:Routes=[
             },
             {
                 path:'accommodation',
-                loadComponent:()=>import('./accommodation/accommodation').then(c=>c.Accommodation)
+                loadComponent:()=>import('./accommodation/accommodation').then(c=>c.AccommodationComponent)
             },
             {
                 path:'food-beverage',

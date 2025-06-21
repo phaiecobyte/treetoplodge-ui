@@ -1,1 +1,107 @@
-<p>accommodation works!</p>
+<section class="accommodation-hero">
+  <div class="hero-content">
+    <h1>Our Unique Treehouse Accommodations</h1>
+    <p>Experience luxury living among the treetops with our eco-friendly forest retreats</p>
+  </div>
+</section>
+
+<div class="container accommodation-container">
+  <!-- Filters Section -->
+  <section class="filters-section">
+    <h2>Find Your Perfect Treehouse</h2>
+    <div class="filters">
+      <div class="filter-group">
+        <label for="check-in">Check In</label>
+        <input type="date" id="check-in" [(ngModel)]="filters.checkIn">
+      </div>
+      <div class="filter-group">
+        <label for="check-out">Check Out</label>
+        <input type="date" id="check-out" [(ngModel)]="filters.checkOut">
+      </div>
+      <div class="filter-group">
+        <label for="guests">Guests</label>
+        <select id="guests" [(ngModel)]="filters.guests">
+          <option value="1">1 Guest</option>
+          <option value="2">2 Guests</option>
+          <option value="3">3 Guests</option>
+          <option value="4">4 Guests</option>
+          <option value="5">5+ Guests</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="view">View</label>
+        <select id="view" [(ngModel)]="filters.view">
+          <option value="all">All Views</option>
+          <option value="forest">Forest View</option>
+          <option value="lake">Lake View</option>
+          <option value="valley">Valley View</option>
+        </select>
+      </div>
+      <button class="filter-button" (click)="applyFilters()">Search</button>
+    </div>
+  </section>
+
+  <!-- Accommodations List -->
+  <section class="accommodations-section">
+    <div class="accommodations-grid">
+      <div class="accommodation-card" *ngFor="let accommodation of accommodations">
+        <div class="accommodation-image">
+          <img [src]="accommodation.imageUrl" [alt]="accommodation.name">
+          <div class="price-tag">${{accommodation.pricePerNight}} <span>per night</span></div>
+        </div>
+        <div class="accommodation-details">
+          <h3>{{accommodation.name}}</h3>
+          <div class="amenities">
+            <span><i class="fas fa-user"></i> {{accommodation.capacity}} Guests</span>
+            <span><i class="fas fa-bed"></i> {{accommodation.bedrooms}} Bedrooms</span>
+            <span><i class="fas fa-bath"></i> {{accommodation.bathrooms}} Bathrooms</span>
+            <span *ngIf="accommodation.view"><i class="fas fa-mountain"></i> {{accommodation.view}} View</span>
+          </div>
+          <p class="description">{{accommodation.shortDescription}}</p>
+          <div class="card-footer">
+            <div class="rating">
+              <i class="fas fa-star"></i> {{accommodation.rating}}
+              <span class="review-count">({{accommodation.reviewCount}} reviews)</span>
+            </div>
+            <button class="view-details-btn" (click)="viewDetails(accommodation.id)">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Accommodation Features -->
+  <section class="features-section">
+    <h2>What Makes Our Treehouses Special</h2>
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-icon">
+          <i class="fas fa-leaf"></i>
+        </div>
+        <h3>Eco-Friendly</h3>
+        <p>Sustainable materials and energy-efficient design to minimize environmental impact</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <i class="fas fa-wifi"></i>
+        </div>
+        <h3>Modern Amenities</h3>
+        <p>High-speed Wi-Fi, premium sound systems, and smart home features</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <i class="fas fa-utensils"></i>
+        </div>
+        <h3>Gourmet Kitchens</h3>
+        <p>Fully equipped kitchens with local, organic welcome basket</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <i class="fas fa-moon"></i>
+        </div>
+        <h3>Stargazing Decks</h3>
+        <p>Private outdoor spaces to enjoy the night sky far from light pollution</p>
+      </div>
+    </div>
+  </section>
+</div>

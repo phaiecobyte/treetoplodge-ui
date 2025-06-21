@@ -1,0 +1,302 @@
+@use "../../shared/assets/scss/custom-variables.scss" as *;
+@use "sass:color";
+
+// Hero Section
+.accommodation-hero {
+  height: 70vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('/assets/images/treehouse-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 3rem;
+
+  .hero-content {
+    max-width: 800px;
+    padding: 2rem;
+
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    p {
+      font-size: 1.5rem;
+      font-weight: 300;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+// Container
+.accommodation-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+// Filters Section
+.filters-section {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 3rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    margin-bottom: 1.5rem;
+    color: $primary;
+    font-weight: 600;
+  }
+
+  .filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    align-items: flex-end;
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      label {
+        font-weight: 500;
+        color: #495057;
+      }
+
+      input, select {
+        padding: 0.75rem;
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: border-color 0.2s;
+
+        &:focus {
+          border-color: $primary;
+          outline: none;
+          box-shadow: 0 0 0 2px rgba($primary, 0.25);
+        }
+      }
+    }
+
+    .filter-button {
+      background-color: $primary;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      height: fit-content;
+
+      &:hover {
+        background-color: color.adjust($primary, $lightness: -5%);
+      }
+    }
+  }
+}
+
+// Accommodations Grid
+.accommodations-section {
+  margin-bottom: 4rem;
+
+  .accommodations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  .accommodation-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: white;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .accommodation-image {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+
+      .price-tag {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        background-color: $primary;
+        color: white;
+        padding: 0.5rem 0.75rem;
+        border-radius: 5px;
+        font-weight: 600;
+        font-size: 1rem;
+
+        span {
+          font-size: 0.8rem;
+          font-weight: 400;
+        }
+      }
+    }
+
+    .accommodation-details {
+      padding: 1.5rem;
+
+      h3 {
+        margin-bottom: 1rem;
+        font-size: 1.4rem;
+        color: #343a40;
+      }
+
+      .amenities {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        color: #6c757d;
+
+        span {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          font-size: 0.9rem;
+        }
+      }
+
+      .description {
+        margin-bottom: 1.5rem;
+        color: #495057;
+        line-height: 1.6;
+      }
+
+      .card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .rating {
+          color: #ffc107;
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          font-weight: 600;
+
+          .review-count {
+            color: #6c757d;
+            font-weight: 400;
+          }
+        }
+
+        .view-details-btn {
+          background-color: transparent;
+          border: 1px solid $primary;
+          color: $primary;
+          padding: 0.5rem 1rem;
+          border-radius: 5px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.2s;
+
+          &:hover {
+            background-color: $primary;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Features Section
+.features-section {
+  background-color: #f8f9fa;
+  padding: 4rem 2rem;
+  border-radius: 10px;
+  margin-bottom: 4rem;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: $primary;
+    font-weight: 600;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2.5rem;
+
+    .feature {
+      text-align: center;
+
+      .feature-icon {
+        font-size: 2.5rem;
+        color: $primary;
+        margin-bottom: 1.5rem;
+        height: 80px;
+        width: 80px;
+        margin: 0 auto 1.5rem;
+        background-color: rgba($primary, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      h3 {
+        margin-bottom: 1rem;
+        color: #343a40;
+      }
+
+      p {
+        color: #6c757d;
+        line-height: 1.6;
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .accommodation-hero {
+    height: 50vh;
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+    }
+  }
+
+  .filters .filter-group {
+    grid-column: 1 / -1;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .accommodations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .accommodation-hero .hero-content h1 {
+    font-size: 2rem;
+  }
+}
