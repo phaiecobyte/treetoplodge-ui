@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import { InputComponent } from '../../shared/components/input';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../helper/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,17 +11,18 @@ import { CommonModule } from '@angular/common';
   templateUrl: './login.html',
   styleUrl: './login.scss'
 })
-export class Login {
+export class LoginComponent {
   frm!:FormGroup;
 
     constructor(
         private fb:FormBuilder,
-        private router:Router
+        private router:Router,
+        private authService:AuthService
     ){}
 
     ngOnInit(): void {
         this.frm = this.fb.group({
-            username:['', [Validators.required]],
+            phoneNumber:['', [Validators.required]],
             password:['', [Validators.required]]
         });
     }
@@ -35,8 +37,11 @@ export class Login {
             this.frm.markAllAsTouched();
             return;
         }else{
-            this.router.navigate(['/home'])
-            console.log("login success");
+            this.authService.login(this.frm.value).subscribe((res:any)=>{
+              this.authService.saveToken(res);
+              this.router.navigate(['/admin/dashboard'])
+              console.log("login success");
+            })
         }
     }
 

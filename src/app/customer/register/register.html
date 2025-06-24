@@ -1,1 +1,45 @@
-<p>register works!</p>
+<div class="container d-flex align-items-center justify-content-center min-vh-100">
+    <div class="row justify-content-center w-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-header bg-primary text-light text-center p-4">
+                    <h2 class="mb-0">Tree Top Lodge</h2>
+                    <p class="mb-0">Create your account</p>
+                </div>
+                <div class="card-body p-4">
+                    <form [formGroup]="frm" (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <app-input formControlName="firstName" label="First Name" placeholder="Enter your first name"
+                                    type="text" prefixIcon="fa fa-user" />
+                            </div>
+                            <div class="col-md-6">
+                                <app-input formControlName="lastName" label="Last Name" placeholder="Enter your last name"
+                                    type="text" prefixIcon="fa fa-user" />
+                            </div>
+                        </div>
+                        <app-input formControlName="username" label="Email" placeholder="Enter your email"
+                            type="email" prefixIcon="fa fa-envelope" />
+                        <app-input formControlName="phoneNumber" label="Phone (optional)" placeholder="Enter your phone number"
+                            type="tel" prefixIcon="fa fa-phone" />
+                        <app-input formControlName="password" label="Password" placeholder="Enter your password"
+                            type="password" prefixIcon="fa fa-lock" />
+                        <app-input formControlName="confirmPassword" label="Confirm Password" placeholder="Confirm your password"
+                            type="password" prefixIcon="fa fa-lock" />
+                            
+                        <div class="d-grid gap-2 d-md-flex mt-4">
+                            <button class="btn btn-primary py-2 flex-grow-1" type="submit" (click)="onSubmit()">
+                                <i class="bi bi-person-plus me-2"></i>Register
+                            </button>
+                            <button class="btn btn-outline-secondary py-2" type="reset" (click)="onBackHome()">Cancel</button>
+                        </div>
+                        <p class="mt-3 text-center">Already have an account? <a href="/login">Login</a></p>
+                    </form>
+                </div>
+                <div class="card-footer text-center py-3 bg-light text-muted">
+                    <small>Copyright © 2025 Tree Top Lodge</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

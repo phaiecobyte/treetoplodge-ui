@@ -25,7 +25,7 @@ export class LeftSidebar {
       { 
           label: 'Accommodation', 
           icon: 'fa-solid fa-person-booth', 
-          routeLink: '/admin/settings' 
+          routeLink: '/admin/accommodation' 
       },
       {
           label:'Manage Users',

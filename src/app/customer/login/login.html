@@ -8,7 +8,7 @@
                 </div>
                 <div class="card-body p-4">
                     <form [formGroup]="frm" (ngSubmit)="onSubmit()">
-                        <app-input formControlName="username" label="Username" placeholder="Enter your username"
+                        <app-input formControlName="phoneNumber" label="Username" placeholder="Enter your username"
                             type="text" prefixIcon="fa fa-user" [showErr]="isFieldInvalid('username')"
                             errMsg="Username is required!" />
                         <app-input formControlName="password" label="Password" placeholder="Enter your password"

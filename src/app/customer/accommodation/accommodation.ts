@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AccommodationCard } from '../../shared/components/accommodation-card/accommodation-card';
+import { AccommodationService } from '../../services/accommodation.service';
 
 interface Accommodation {
   id: number;
@@ -28,7 +30,7 @@ interface FilterOptions {
 @Component({
   selector: 'app-accommodation',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, AccommodationCard],
   templateUrl: './accommodation.html',
   styleUrl: './accommodation.scss'
 })
@@ -41,15 +43,16 @@ export class AccommodationComponent implements OnInit {
     view: 'all'
   };
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private service:AccommodationService) {}
 
   ngOnInit(): void {
+    this.fetchData(0);
     // In a real app, this would come from a service
     this.accommodations = [
       {
         id: 1,
         name: 'Eagle\'s Nest Treehouse',
-        imageUrl: 'assets/images/treehouse1.jpg',
+        imageUrl: 'https://images.pexels.com/photos/492228/pexels-photo-492228.jpeg',
         pricePerNight: 299,
         capacity: 2,
         bedrooms: 1,
@@ -63,7 +66,7 @@ export class AccommodationComponent implements OnInit {
       {
         id: 2,
         name: 'Forest Canopy Suite',
-        imageUrl: 'assets/images/treehouse2.jpg',
+        imageUrl: 'https://images.pexels.com/photos/32633161/pexels-photo-32633161.png',
         pricePerNight: 349,
         capacity: 4,
         bedrooms: 2,
@@ -77,7 +80,7 @@ export class AccommodationComponent implements OnInit {
       {
         id: 3,
         name: 'Lakeside Treehouse',
-        imageUrl: 'assets/images/treehouse3.jpg',
+        imageUrl: 'https://images.pexels.com/photos/492228/pexels-photo-492228.jpeg',
         pricePerNight: 399,
         capacity: 4,
         bedrooms: 2,
@@ -91,7 +94,7 @@ export class AccommodationComponent implements OnInit {
       {
         id: 4,
         name: 'Family Tree Lodge',
-        imageUrl: 'assets/images/treehouse4.jpg',
+        imageUrl: 'https://images.pexels.com/photos/492228/pexels-photo-492228.jpeg',
         pricePerNight: 499,
         capacity: 6,
         bedrooms: 3,
@@ -114,4 +117,24 @@ export class AccommodationComponent implements OnInit {
   viewDetails(id: number): void {
     this.router.navigate(['/accommodations', id]);
   }
+
+  bookAccommodation(id:number=1){
+
+  }
+  viewAccommodationDetails(id:number=1){
+
+  }
+
+  list:any;
+  currentPage = 0;
+  totalPages = 0;
+  fetchData(page:number){
+    return this.service.findAll(page,10,'name,asc').subscribe(res=>{
+      this.list = res.content;
+      this.currentPage = res.number;
+      this.totalPages = res.totalPages;
+      console.log("accommodation data", this.list)
+    })
+  }
+
 }

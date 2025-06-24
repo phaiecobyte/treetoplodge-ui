@@ -6,7 +6,11 @@
   top: 0;
   transition: all 0.5s ease;
   background: #f4f7fa;
-  padding: 3rem;
+  padding-top:1rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .body-trimmed {

@@ -1,0 +1,57 @@
+<div class="card h-100 shadow-sm accommodation-card">
+        <!-- Image with price tag -->
+        <div class="position-relative">
+          <img [src]="accommodation.imageUrl || 'assets/images/placeholder.jpg'" 
+               [alt]="accommodation.name" 
+               class="card-img-top accommodation-image">
+          <span class="position-absolute bottom-0 end-0 m-3 badge bg-success price-badge">
+            ${{ accommodation.pricePerNight }} <small>per night</small>
+          </span>
+          <div *ngIf="!accommodation.available" class="position-absolute top-0 start-0 w-100 h-100 unavailable-overlay">
+            <div class="badge bg-danger p-3 position-absolute top-50 start-50 translate-middle">Not Available</div>
+          </div>
+        </div>
+        
+        <!-- Card body -->
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title fw-bold">{{ accommodation.name }}</h5>
+          
+          <!-- Amenities icons -->
+          <div class="d-flex gap-3 mb-2 text-secondary small">
+            <div><i class="bi bi-people-fill"></i> {{ accommodation.capacity }} Guests</div>
+            <div><i class="bi bi-house-door"></i> {{ accommodation.bedrooms }} {{ accommodation.bedrooms > 1 ? 'Bedrooms' : 'Bedroom' }}</div>
+            <div><i class="bi bi-water"></i> {{ accommodation.bathrooms }} {{ accommodation.bathrooms > 1 ? 'Bathrooms' : 'Bathroom' }}</div>
+          </div>
+          
+          <!-- View type badge if available -->
+          <div *ngIf="accommodation.view" class="mb-2">
+            <span class="badge bg-info text-dark">
+              <i class="bi bi-binoculars-fill me-1"></i> {{ accommodation.view }} View
+            </span>
+          </div>
+          
+          <!-- Description -->
+          <p class="card-text flex-grow-1">{{ accommodation.shortDescription }}</p>
+          
+          <!-- Rating -->
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <div class="rating">
+              <i class="bi bi-star-fill text-warning"></i>
+              <span class="ms-1">{{ accommodation.rating }}</span>
+              <small class="text-muted ms-1">({{ accommodation.reviewCount }} reviews)</small>
+            </div>
+          </div>
+          
+          <!-- Buttons -->
+          <div class="d-grid gap-2 d-md-flex justify-content-md-between">
+            <button class="btn btn-outline-success" 
+                    (click)="onBook(accommodation.id)"
+                    [disabled]="!accommodation.available">
+              <i class="bi bi-calendar-check me-1"></i> Book Now
+            </button>
+            <button class="btn btn-primary" (click)="onViewDetails(accommodation.id)">
+              <i class="bi bi-info-circle me-1"></i> Details
+            </button>
+          </div>
+        </div>
+      </div>

@@ -11,10 +11,10 @@ export const routes: Routes = [
     },
     {
         path:'login',
-        loadComponent:()=>import('./customer/login/login').then(c=>c.Login)
+        loadComponent:()=>import('./customer/login/login').then(c=>c.LoginComponent)
     },
     {
         path:'register',
-        loadComponent:()=>import('./customer/register/register').then(c=>c.Register)
+        loadComponent:()=>import('./customer/register/register').then(c=>c.RegisterComponent)
     }
 ];

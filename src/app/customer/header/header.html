@@ -19,9 +19,16 @@
           </a>
         </li>
       </ul>
-      <div class="nav-actions">
-        <button class="btn-book" routerLink="login">Sign In</button>
-      </div>
+      @if (!isLogined()) {
+        <!-- show when not sigin -->
+        <div class="nav-actions">
+          <button class="btn-book" routerLink="login">Sign In</button>
+        </div>
+      }@else{
+        <!-- show when already sign in -->
+        <app-profile></app-profile>
+      }
+      
     </nav>
   </div>
 </header>

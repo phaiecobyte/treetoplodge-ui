@@ -1,0 +1,14 @@
+<app-modal>
+    
+</app-modal>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    @for (item of items; track $index) {
+    <div class="col">
+        <app-accommodation-card 
+            [accommodation]="items" 
+            (book)="bookAccommodation($event)"
+            (viewDetails)="viewAccommodationDetails($event)">
+        </app-accommodation-card>
+    </div>
+    }
+</div>

@@ -1,8 +1,7 @@
-<div class="body" [ngClass]="sizeClass()">
-  <header class="header">
-    <!-- page title at left side -->
-     <h1>{{pageTitleService.pageTitle()}}</h1>
-    <!-- user profile at right side -->
-  </header>
+<div class="body pb-3" [ngClass]="sizeClass()">
+     <h4>{{pageTitleService.pageTitle()}}</h4>
+     <app-profile></app-profile>
+</div>
+<div class="container p-5" [ngClass]="sizeClass()">
   <router-outlet />
 </div>

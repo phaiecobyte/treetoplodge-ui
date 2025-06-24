@@ -16,6 +16,10 @@ export const routes: Routes = [
                 loadComponent:()=>import('./dashboard/dashboard').then(c=>c.DashboardComponent)
             },
             {
+                path:'accommodation',
+                loadComponent:()=>import('./accommodation/accommodation').then(c=>c.AccommodationComponent)
+            },
+            {
                 path:'users',
                 loadComponent:()=>import('./user/user-profile').then(c=>c.UserProfileComponent)
             }

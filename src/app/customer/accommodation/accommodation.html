@@ -70,6 +70,16 @@
     </div>
   </section>
 
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+  <div class="col" *ngFor="let accommodation of accommodations">
+    <app-accommodation-card 
+      [accommodation]="accommodation" 
+      (book)="bookAccommodation($event)"
+      (viewDetails)="viewAccommodationDetails($event)">
+    </app-accommodation-card>
+  </div>
+</div>
+
   <!-- Accommodation Features -->
   <section class="features-section">
     <h2>What Makes Our Treehouses Special</h2>
