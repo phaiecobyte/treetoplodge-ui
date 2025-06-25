@@ -21,6 +21,7 @@ import {
         <input
           class="form-control"
           [type]="type"
+          [multiple]="mulitple"
           [id]="id"
           [formControl]="inputControl"
           [class.has-validation]="showErr"
@@ -61,7 +62,7 @@ export class InputComponent implements ControlValueAccessor, OnInit {
   @Input() errMsg: string = 'This field is required';
   @Input() showErr: boolean = false;
   @Input() disabled: boolean = false;
-
+  @Input() mulitple: boolean = false;
   inputControl = new FormControl('');
 
   onChange: any = () => {};

@@ -7,13 +7,8 @@ declare var bootstrap:any;
   selector: 'app-modal',
   imports: [],
   template: `
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-      @if(icon){}
-      {{txtBtnOpenModal}}
-    </button>
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
+    <div class="modal fade" id={{id}} data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="staticBackdropLabel">{{title}}</h1>
@@ -33,6 +28,7 @@ declare var bootstrap:any;
   styles: ``
 })
 export class StaticBackDropModal {
+  @Input() id="";
   @Input() txtBtnOpenModal = "Open Modal";
   @Input() icon = "";
   @Input() title = "Modal Title";

@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { AuthService } from '../../helper/auth.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
-  imports: [],
+  imports: [RouterModule],
   template: `
     <button
       class="btn rounded-circle profile-btn p-0 position-relative"
@@ -47,14 +48,14 @@ import { AuthService } from '../../helper/auth.service';
         ></button>
       </div>
       
-      <div class="offcanvas-body p-0">
+      <div class="offcanvas-body p-0 z-3">
         <div class="list-group list-group-flush">
-          <a href="#" class="list-group-item list-group-item-action py-3 px-4 d-flex align-items-center">
+          <a routerLink="/admin/dashboard" class="list-group-item list-group-item-action py-3 px-4 d-flex align-items-center">
             <i class="fa-solid fa-gauge-high me-3 text-primary"></i> 
             <span>Dashboard</span>
             <i class="fa-solid fa-chevron-right ms-auto text-muted"></i>
           </a>
-          <a href="/admin/profile" class="list-group-item list-group-item-action py-3 px-4 d-flex align-items-center">
+          <a routerLink="/admin/profile" class="list-group-item list-group-item-action py-3 px-4 d-flex align-items-center">
             <i class="fa-solid fa-user me-3 text-primary"></i> 
             <span>Your Profile</span>
             <i class="fa-solid fa-chevron-right ms-auto text-muted"></i>

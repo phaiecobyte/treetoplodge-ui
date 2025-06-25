@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
     {
         path:'',
-        loadChildren:()=>import('./customer/customer.routes').then(r=>r.routes)
+        loadChildren:()=>import('./pages/customer.routes').then(r=>r.routes)
     },
     {
         path:'admin',
@@ -11,10 +11,10 @@ export const routes: Routes = [
     },
     {
         path:'login',
-        loadComponent:()=>import('./customer/login/login').then(c=>c.LoginComponent)
+        loadComponent:()=>import('./pages/login/login').then(c=>c.LoginComponent)
     },
     {
         path:'register',
-        loadComponent:()=>import('./customer/register/register').then(c=>c.RegisterComponent)
+        loadComponent:()=>import('./pages/register/register').then(c=>c.RegisterComponent)
     }
 ];

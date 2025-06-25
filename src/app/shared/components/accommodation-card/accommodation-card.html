@@ -1,7 +1,7 @@
 <div class="card h-100 shadow-sm accommodation-card">
         <!-- Image with price tag -->
         <div class="position-relative">
-          <img [src]="accommodation.imageUrl || 'assets/images/placeholder.jpg'" 
+          <img [src]="accommodation.mainImgUrl || 'https://images.pexels.com/photos/492228/pexels-photo-492228.jpeg'" 
                [alt]="accommodation.name" 
                class="card-img-top accommodation-image">
           <span class="position-absolute bottom-0 end-0 m-3 badge bg-success price-badge">
@@ -18,20 +18,20 @@
           
           <!-- Amenities icons -->
           <div class="d-flex gap-3 mb-2 text-secondary small">
-            <div><i class="bi bi-people-fill"></i> {{ accommodation.capacity }} Guests</div>
-            <div><i class="bi bi-house-door"></i> {{ accommodation.bedrooms }} {{ accommodation.bedrooms > 1 ? 'Bedrooms' : 'Bedroom' }}</div>
+            <div><i class="bi bi-people-fill"></i> {{ accommodation.maxGuests }} Guests</div>
+            <div><i class="bi bi-house-door"></i> {{ accommodation.beds }} {{ accommodation.beds > 1 ? 'Bedrooms' : 'Bedroom' }}</div>
             <div><i class="bi bi-water"></i> {{ accommodation.bathrooms }} {{ accommodation.bathrooms > 1 ? 'Bathrooms' : 'Bathroom' }}</div>
           </div>
           
           <!-- View type badge if available -->
-          <div *ngIf="accommodation.view" class="mb-2">
+          <div *ngIf="accommodation.type" class="mb-2">
             <span class="badge bg-info text-dark">
-              <i class="bi bi-binoculars-fill me-1"></i> {{ accommodation.view }} View
+              <i class="bi bi-binoculars-fill me-1"></i> {{ accommodation.type }} View
             </span>
           </div>
           
           <!-- Description -->
-          <p class="card-text flex-grow-1">{{ accommodation.shortDescription }}</p>
+          <p class="card-text flex-grow-1">{{ accommodation.description }}</p>
           
           <!-- Rating -->
           <div class="d-flex justify-content-between align-items-center mb-2">

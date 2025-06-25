@@ -1,12 +1,85 @@
-<app-modal>
-    
+<div class="row mb-3">
+    <div class="col text-end">
+        <app-btn-trigger
+            target="#modalCreate"
+            icon="bi bi-plus-circle"
+            txtBtnOpenModal="Insert New"
+        />
+    </div>
+</div>
+<app-modal 
+    title="Insert new accommodation"
+    [id]="'modalCreate'" 
+    (saveClicked)="createAccommodation()"
+    >
+    <form [formGroup]="frm">
+       
+        <app-input 
+            label="Name" 
+            formControlName="name" 
+        />
+            
+        <!-- File input with explicit event handler -->
+        <div class="mb-3">
+            <label for="mainImageInput" class="form-label">Main Image</label>
+            <input type="file" class="form-control" id="mainImageInput" accept="image/*" (change)="onMainImageSelected($event)" />
+        </div>
+
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"
+                formControlName="description"></textarea>
+            <label for="floatingTextarea">Short Description</label>
+        </div>
+
+        <label for="type" class="form-label">Select </label>
+        <select class="form-select mb-3" aria-label="Default select example" id="type" formControlName="type">
+            <option value="Forest">Forest View</option>
+            <option value="River">Rever View</option>
+            <option value="Mountain">Mountain View</option>
+        </select>
+
+        <div class="row">
+            <div class="col">
+                <app-input label="$/night" type="number" formControlName="pricePerNight" />
+            </div>
+            <div class="col">
+                <app-input label="capacity" type="number" formControlName="maxGuests" />
+            </div>
+            <div class="col">
+                <app-input label="bed" type="number" formControlName="beds" />
+            </div>
+            <div class="col">
+                <app-input label="bathroom" type="number" formControlName="bathrooms" />
+            </div>
+        </div>
+
+        <!-- Features input -->
+        <div class="mb-3">
+            <label for="feature" class="form-label">Amenities (Separate by comma)</label>
+            <textarea class="form-control" id="feature" formControlName="features"
+                placeholder="Wi-Fi, Fireplace, Private deck, Mini kitchen,...etc"></textarea>
+        </div>
+
+        <app-input label="Additional Images" type="file" formArrayName="additionalImgUrls" [mulitple]="true" />
+    </form>
+
+    <!-- Show spinner when loading -->
+    <div *ngIf="loading()" class="text-center mt-3">
+        <span class="spinner-border text-primary" role="status"></span>
+    </div>
 </app-modal>
+
+<app-modal
+    title="Edit Accommodation"
+    [id]="'modalEdit'"
+>
+
+</app-modal>
+
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-    @for (item of items; track $index) {
+    @for (item of items(); track $index) {
     <div class="col">
-        <app-accommodation-card 
-            [accommodation]="items" 
-            (book)="bookAccommodation($event)"
+        <app-accommodation-card [accommodation]="item" (book)="bookAccommodation($event)"
             (viewDetails)="viewAccommodationDetails($event)">
         </app-accommodation-card>
     </div>

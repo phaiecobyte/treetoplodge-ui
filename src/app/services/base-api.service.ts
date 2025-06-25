@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { Accommodation } from "../shared/models/accommodation";
 
 export interface PageResponse<T> {
   content: T[];
@@ -30,6 +31,10 @@ export abstract class BaseApiService <T>{
     if (sort) params.sort = sort;
 
     return this.http.get<PageResponse<T>>(`${this.baseUrl}${this.endpoint}`, { params });
+  }
+
+  create(data:T){
+    return this.http.post(`${this.baseUrl}${this.endpoint}`,data)
   }
 
 }

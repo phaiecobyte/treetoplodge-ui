@@ -20,7 +20,7 @@ interface Accommodation {
   available: boolean;
 }
 
-interface FilterOptions {
+export interface FilterOptions {
   checkIn: Date | null;
   checkOut: Date | null;
   guests: number;
@@ -30,7 +30,7 @@ interface FilterOptions {
 @Component({
   selector: 'app-accommodation',
   standalone: true,
-  imports: [CommonModule, FormsModule, AccommodationCard],
+  imports: [CommonModule, FormsModule],
   templateUrl: './accommodation.html',
   styleUrl: './accommodation.scss'
 })
