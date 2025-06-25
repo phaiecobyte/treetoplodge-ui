@@ -16,7 +16,8 @@ export interface PageResponse<T> {
   providedIn: 'root'
 })
 export abstract class BaseApiService <T>{
-    protected baseUrl = 'http://localhost:8081/api/v1/'
+    // protected baseUrl = 'http://localhost:8081/api/v1/'
+    protected baseUrl = 'http://192.168.1.5:8081/api/v1/'
     constructor(
         protected http:HttpClient,
         protected endpoint:string
