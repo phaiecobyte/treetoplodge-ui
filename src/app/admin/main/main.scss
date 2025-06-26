@@ -6,7 +6,7 @@
   top: 0;
   transition: all 0.5s ease;
   background: #f4f7fa;
-  padding-top:1rem;
+  padding-top: 1rem;
   padding-left: 3rem;
   padding-right: 3rem;
   display: flex;
@@ -21,4 +21,53 @@
 .body-md-screen {
   width: calc(100% - 5rem);
   margin-left: 5rem;
+}
+
+.main-wrapper {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.sidebar-space {
+  min-width: 250px;
+  width: 250px;
+  transition: all 0.3s ease;
+}
+
+.sidebar-space-collapsed {
+  min-width: 70px;
+  width: 70px;
+  transition: all 0.3s ease;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
+
+.content-container {
+  flex-grow: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .sidebar-space,
+  .sidebar-space-collapsed {
+    min-width: 0;
+    width: 0;
+  }
+  .content-container{
+    margin-left: 5rem;
+  }
+
+  .header {
+    padding-left: 6rem !important;
+  }
 }

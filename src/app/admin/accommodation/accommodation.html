@@ -7,6 +7,8 @@
         />
     </div>
 </div>
+
+
 <app-modal 
     title="Insert new accommodation"
     [id]="'modalCreate'" 
@@ -18,16 +20,19 @@
             label="Name" 
             formControlName="name" 
         />
-            
-        <!-- File input with explicit event handler -->
-        <div class="mb-3">
-            <label for="mainImageInput" class="form-label">Main Image</label>
-            <input type="file" class="form-control" id="mainImageInput" accept="image/*" (change)="onMainImageSelected($event)" />
-        </div>
 
+        <app-single-upload
+            label="Main Image"
+            formControlName="mainImgUrl"
+        />
+        
         <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"
-                formControlName="description"></textarea>
+            <textarea class="form-control" 
+                      placeholder="Leave a comment here" id="floatingTextarea"
+                      formControlName="description"
+                      style="height: 150px"
+                      >
+            </textarea>
             <label for="floatingTextarea">Short Description</label>
         </div>
 
@@ -69,12 +74,6 @@
     </div>
 </app-modal>
 
-<app-modal
-    title="Edit Accommodation"
-    [id]="'modalEdit'"
->
-
-</app-modal>
 
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
     @for (item of items(); track $index) {

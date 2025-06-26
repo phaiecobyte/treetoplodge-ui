@@ -1,33 +1,48 @@
 <div
-  class="sidenav"
-  [ngClass]="isLeftSidebarCollapsed() ? 'sidenav-collapsed' : ''"
+  class="sidebar bg-dark"
+  [ngClass]="isLeftSidebarCollapsed() ? 'sidebar-collapsed' : ''"
 >
-  <div class="logo-container">
-    <button class="logo" (click)="toggleCollapse()">
-      <i class="fa-solid fa-bars"></i>
-    </button>
-    @if (!isLeftSidebarCollapsed()) {
-      <div class="logo-text">Tree Top Lodge</div>
-      <button class="btn-close" (click)="closeSidenav()">
-        <i class="fa-solid fa-times close-icon"></i>
+  <div class="d-flex flex-column h-100">
+    <!-- Header -->
+    <div class="sidebar-header bg-gradient p-3 d-flex align-items-center">
+      <button class="btn btn-light sidebar-toggle p-2" (click)="toggleCollapse()">
+        <i class="fa-solid fa-bars"></i>
       </button>
-    }
-  </div>
-  <div class="sidenav-nav">
-    @for (item of items; track $index) {
-      <li class="sidenav-nav-item">
-        <a
-          class="sidenav-nav-link"
-          [routerLink]="item.routeLink"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-        >
-          <i class="sidenav-link-icon" [class]="item.icon"></i>
-          @if (!isLeftSidebarCollapsed()) {
-            <span class="sidenav-link-text">{{ item.label }}</span>
-          }
-        </a>
-      </li>
-    }
+
+      @if (!isLeftSidebarCollapsed()) {
+        <div class="sidebar-title ms-3 text-white">Tree Top Lodge</div>
+        <button class="btn-close btn-close-white ms-auto" (click)="closeSidenav()"></button>
+      }
+    </div>
+
+    <!-- Navigation Menu -->
+    <ul class="nav flex-column mt-3 p-3">
+      @for (item of items; track $index) {
+        <li class="nav-item mb-2">
+          <a
+            class="nav-link sidebar-link d-flex align-items-center px-3 py-3 rounded"
+            [routerLink]="item.routeLink"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <i [class]="item.icon + ' sidebar-icon'"></i>
+
+            @if (!isLeftSidebarCollapsed()) {
+              <span class="sidebar-text ms-3">{{ item.label }}</span>
+            }
+          </a>
+        </li>
+      }
+    </ul>
+
+    <!-- Optional: Bottom section for profile, etc -->
+    <div class="mt-auto p-3">
+      @if (!isLeftSidebarCollapsed()) {
+        <div class="text-white-50 small">
+          <hr />
+          <p class="mb-0">Tree Top Lodge Admin Panel</p>
+        </div>
+      }
+    </div>
   </div>
 </div>

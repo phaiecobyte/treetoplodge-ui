@@ -1,7 +1,18 @@
-<div class="body" [ngClass]="sizeClass()">
-     <h4>{{pageTitleService.pageTitle()}}</h4>
-     <app-profile></app-profile>
-</div>
-<div class="container p-5" [ngClass]="sizeClass()">
-  <router-outlet />
+<div class="main-wrapper d-flex">
+  <!-- Sidebar placeholder -->
+  <div [ngClass]="isLeftSidebarCollapsed() ? 'sidebar-space-collapsed' : 'sidebar-space'"></div>
+  
+  <!-- Main content -->
+  <div class="content-wrapper flex-grow-1">
+    <!-- Header -->
+    <header class="header py-3 px-4 shadow-sm bg-white d-flex justify-content-between align-items-center">
+      <h4 class="mb-0">{{pageTitleService.pageTitle()}}</h4>
+      <app-profile></app-profile>
+    </header>
+    
+    <!-- Main content area -->
+    <div class="content-container p-4">
+      <router-outlet />
+    </div>
+  </div>
 </div>
